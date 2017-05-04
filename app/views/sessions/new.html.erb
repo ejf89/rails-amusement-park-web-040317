@@ -1,0 +1,7 @@
+<h1>LOGIN!!!!</h1>
+Select ya name:
+<select>
+  <% @users.each do |user| %>
+  <option value="<%= user%>"> <%= user.name %> </option>
+    <% end %>
+  </select>
