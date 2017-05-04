@@ -5,13 +5,16 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.save
-    binding.pry
-    redirect_to "/users/#{@user.id}"
+    session[:name] = @user[:name]
+    if @user.save
+      redirect_to "/users/#{@user.id}"
+    else
+      render :new
+    end
   end
 
   def show
-    @user = User.find_by(params[:user][:id])
+    @user = User.find_by(params[:id])
   end
 
   private
