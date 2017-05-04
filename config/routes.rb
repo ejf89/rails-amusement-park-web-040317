@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
-  # get '/welcome', to: 'welcome#index', as: '/index'
   root 'welcome#index'
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
-  get '/users' => 'users#show'
-  get '/users/:id' => 'users#show'
-
+  get '/users/:id' => 'users#show', as: 'user'
+  get '/users/:id/edit' => 'users#edit'
+  patch '/users/:id' => 'users#update'
 
 end

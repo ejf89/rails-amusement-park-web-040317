@@ -5,8 +5,13 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   private
+  
   def current_user
-    current_user = User.find(params[:id])
+    if User.find(params[:id])
+      current_user = User.find(params[:id])
+    else
+      redirect_to '/signup'
+    end
   end
 
 end

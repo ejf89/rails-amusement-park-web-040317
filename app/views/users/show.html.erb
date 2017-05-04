@@ -3,3 +3,6 @@ Name: <%=current_user.name %>
 Tix: <%=current_user.tickets %>
 <br>
 Height: <%=current_user.height %>
+<br>
+<br>
+<%= link_to "edit", "/users/#{current_user.id}/edit" %>
