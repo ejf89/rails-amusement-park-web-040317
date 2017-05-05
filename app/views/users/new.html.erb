@@ -1,10 +1,12 @@
 <h1> Hi </h1>
+Have an account? <%= link_to "Sign In", login_path  %>
+<br>
+<br>
 <%= form_for @user, url: signup_path  do |f| %>
 Name: <%= f.text_field :name %>
 <br>
 Password: <%= f.password_field :password %>
 <br>
-Password Confirmation: <%= f.password_field :password_confirmation %>
 How tall are you? <%= f.number_field :height %>
 <br>
 How happy are you? <%= f.number_field :happiness %>
@@ -13,6 +15,6 @@ How nausea are you? <%= f.number_field :nausea %>
 <br>
 How much money do u have <%= f.number_field :tickets %>
 <br>
-Check box if you are a theme park owner <%= f.check_box :admin %>
-<%= f.submit %>
+Check box if you are a theme park owner <%= f.check_box :admin%>
+<%= f.submit "Create User" %>
 <% end %>

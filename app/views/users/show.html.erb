@@ -1,3 +1,7 @@
+<% if current_user.admin == true %>
+  <h1> ADMIN </h1>
+<% end %>
+
 Name: <%=current_user.name %>
 <br>
 Tix: <%=current_user.tickets %>
@@ -6,4 +10,7 @@ Height: <%=current_user.height %>
 <br>
 Mood: <%=current_user.mood %>
 <br>
-<%= link_to "edit", "/users/#{current_user.id}/edit" %>
+
+
+<%= link_to "Edit", edit_user_path %>
+<%= link_to "Log Out",  user_path(current_user), method: :delete %>

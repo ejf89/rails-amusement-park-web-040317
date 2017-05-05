@@ -5,17 +5,22 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params(:name, :password, :password_confirmation, :nausea, :happiness, :height, :tickets, :admin))
-    session[:name] = @user[:name]
+    @user = User.new(user_params(:name, :password, :nausea, :happiness, :height, :tickets, :admin))
     if @user.save
+      session[:user_id] = @user[:id]
       redirect_to user_path(@user)
     else
-      render :new
+      redirect_to root_path
     end
   end
 
   def show
-    @user = User.find_by(params[:id])
+    @user = User.find(params[:id])
+    if logged_in?
+      render :show
+    else
+      redirect_to root_path
+    end
   end
 
   def edit
