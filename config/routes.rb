@@ -9,4 +9,11 @@ Rails.application.routes.draw do
   post '/signin' => 'sessions#create'
   delete '/users/:id' => 'sessions#destroy'
 
+  get '/attractions' => 'attractions#index'
+  get '/attractions/new' => 'attractions#new', as: 'new_attraction'
+  post '/attractions' => 'attractions#create'
+  get '/attractions/:id' => 'attractions#show', as: 'attraction'
+
+  post '/rides' => 'rides#create', as: 'ride'
+
 end

@@ -12,5 +12,6 @@ Mood: <%=current_user.mood %>
 <br>
 
 
-<%= link_to "Edit", edit_user_path %>
-<%= link_to "Log Out",  user_path(current_user), method: :delete %>
+<%= link_to "Edit", edit_user_path %> <br>
+<%= link_to "See attractions", attractions_path %> <br>
+<%= link_to "Log Out",  user_path(current_user), method: :delete %> <br>

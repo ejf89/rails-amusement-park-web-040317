@@ -1,0 +1,17 @@
+<h1> Listing Attractions </h1>
+<tbody>
+  <tr>
+    <th>Picture</th>
+    <th>Name</th>
+    <th>Tickets</th>
+    <th>Details</th>
+  </tr>
+  <tr>
+    <% @attractions.each do |attraction| %>
+    <td><%= attraction.name %></td>
+    <td><%= attraction.tickets %></td>
+    <td><%= link_to "Go on #{attraction.name}", attraction_path(attraction)%><br></td>
+    <%end%>
+  </tr>
+
+</tbody>
